@@ -9,5 +9,5 @@ public class CommandConstant {
   public static final String REDO = "REDO";
   public static final String UNDO = "UNDO";
   public static final String SHOW = "SHOW";
-
+  public static final String NO_SUCH_COMMENT = "No such comment";
 }

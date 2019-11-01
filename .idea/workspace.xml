@@ -2,25 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d6817f1-d7a9-4a57-a481-b3a3427b8bbe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/command/CommandFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/constant/CommandConstant.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/product/CoffeeCandyFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/product/CoffeePowderFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/actor/Actor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Company.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/CreateProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/CreateProductCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/DeliverProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/DeliverProductCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/DisplayUndoRedoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/DisplayUndoRedoList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/Invoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Invoker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/ReceiveProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/ReceiveProductCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Receiver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/RedoProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/RedoProductCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/ShowProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/ShowProductCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/UndoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/UndoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/product/CoffeeCandy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/product/CoffeeCandy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/product/CoffeePowder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/product/CoffeePowder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/product/CoffeeProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/product/CoffeeProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/product/ProductFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/product/ProductFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Invoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Invoker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Receiver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/CommandFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/CommandFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/CreateProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/CreateProductCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/DeliverProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/DeliverProductCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/DisplayUndoRedoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/DisplayUndoRedoList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/ReceiveProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/ReceiveProductCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/RedoProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/RedoProductCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/ShowProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/ShowProductCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/UndoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/UndoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/constant/CommandConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/constant/CommandConstant.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1572575470046</updated>
       <workItem from="1572575473846" duration="5247000" />
-      <workItem from="1572598382790" duration="2174000" />
+      <workItem from="1572598382790" duration="5039000" />
     </task>
     <servers />
   </component>
