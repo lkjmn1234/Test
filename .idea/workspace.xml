@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7d6817f1-d7a9-4a57-a481-b3a3427b8bbe" name="Default Changelist" comment="" />
+    <list default="true" id="7d6817f1-d7a9-4a57-a481-b3a3427b8bbe" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/command/CommandFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/constant/CommandConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/product/CoffeeCandyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/product/CoffeePowderFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/CreateProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/CreateProductCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/DeliverProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/DeliverProductCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/DisplayUndoRedoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/DisplayUndoRedoList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/Invoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Invoker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/ReceiveProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/ReceiveProductCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/Receiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Receiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/RedoProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/RedoProductCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/ShowProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/ShowProductCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/UndoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/UndoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/product/CoffeeCandy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/product/CoffeeCandy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/product/CoffeePowder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/product/CoffeePowder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/product/CoffeeProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/product/CoffeeProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/product/ProductFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/product/ProductFactory.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +36,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1SznorwjnA32iwPUcTYP4JM6wr9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
@@ -38,12 +62,13 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.company" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.company.command" />
-      <recent name="com.company" />
-    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.company.product" />
+      <recent name="com.company.command" />
+      <recent name="com.company" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -85,11 +110,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1572575470046</updated>
-      <workItem from="1572575473846" duration="4707000" />
+      <workItem from="1572575473846" duration="5247000" />
+      <workItem from="1572598382790" duration="2174000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

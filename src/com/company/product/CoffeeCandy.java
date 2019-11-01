@@ -1,6 +1,6 @@
 package com.company.product;
 
-public class CoffeeCandy extends CoffeeProduct{
+public class CoffeeCandy extends CoffeeProduct {
 
   private int noOfCandy;
   private int caloriesPerCandy;
@@ -8,7 +8,8 @@ public class CoffeeCandy extends CoffeeProduct{
   public CoffeeCandy() {
   }
 
-  public CoffeeCandy(int noOfCandy, int caloriesPerCandy) {
+  public CoffeeCandy(String name, int productID, int noOfCandy, int caloriesPerCandy) {
+    super(name, productID);
     this.noOfCandy = noOfCandy;
     this.caloriesPerCandy = caloriesPerCandy;
   }

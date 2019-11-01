@@ -1,5 +1,6 @@
-package com.company.command;
+package com.company;
 
+import com.company.command.Command;
 import java.util.LinkedList;
 
 public class Invoker {

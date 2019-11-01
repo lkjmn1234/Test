@@ -9,10 +9,9 @@ public class CoffeeProduct {
   public CoffeeProduct() {
   }
 
-  public CoffeeProduct(String name, int productID, int qty) {
+  public CoffeeProduct(String name, int productID) {
     this.name = name;
     this.productID = productID;
-    this.qty = qty;
   }
 
   public String getName() {

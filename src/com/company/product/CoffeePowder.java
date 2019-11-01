@@ -1,13 +1,14 @@
 package com.company.product;
 
-public class CoffeePowder extends CoffeeProduct{
+public class CoffeePowder extends CoffeeProduct {
 
   private double weight;
 
   public CoffeePowder() {
   }
 
-  public CoffeePowder(double weight) {
+  public CoffeePowder(String name, int productID, double weight) {
+    super(name, productID);
     this.weight = weight;
   }
 
