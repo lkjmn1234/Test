@@ -1,21 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7d6817f1-d7a9-4a57-a481-b3a3427b8bbe" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/actor/Actor.java" afterDir="false" />
+    <list default="true" id="0d236e30-b741-4f5f-abe1-739c15971944" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FinalVersion3343.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/OperationMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Service/AppService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/command/factory/CreateCandyCommandFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/command/factory/CreatePowderCommandFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/command/factory/DeliverCommandFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/command/factory/ReceiveCommandFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/command/factory/ShowCommandFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/command/implement/CreateCandyCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/command/implement/CreatePowderCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/memo/Caretaker.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/memo/CommandMemento.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/memo/CommandOriginator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/google-java-format.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Assignment/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Assignment/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Company.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Invoker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Invoker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Receiver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/actor/Actor.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/command/CommandFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/CommandFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/CreateProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/CreateProductCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/DeliverProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/DeliverProductCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/DisplayUndoRedoList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/DisplayUndoRedoList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/ReceiveProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/ReceiveProductCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/RedoProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/RedoProductCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/ShowProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/ShowProductCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/UndoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/UndoCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/constant/CommandConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/constant/CommandConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/CreateProductCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/DeliverProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/DeliverCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/DisplayUndoRedoList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/ReceiveProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/ReceiveCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/RedoProductCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/ShowProductCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/command/implement/ShowCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/command/implement/UndoCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/constant/CommandConstant.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/product/CoffeeCandyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/product/CoffeeCandyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/product/CoffeePowderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/product/CoffeePowderFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/product/ProductFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/product/ProductFactory.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,44 +56,38 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
-  <component name="ProjectId" id="1SznorwjnA32iwPUcTYP4JM6wr9" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1T1AUV9g29cz0KB2Q3C8ldNwItB" />
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="true" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="create.test.in.the.same.root" value="true" />
-    <property name="node.js.detected.package.eslint" value="true" />
-    <property name="node.js.detected.package.tslint" value="true" />
-    <property name="node.js.path.for.package.eslint" value="project" />
-    <property name="node.js.path.for.package.tslint" value="project" />
-    <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/com/company" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="google-java-format.settings" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.company" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.company.product" />
-      <recent name="com.company.command" />
+      <recent name="com.company.command.factory" />
       <recent name="com.company" />
+      <recent name="com.company.command.implement" />
+      <recent name="com.company.product" />
+      <recent name="com.company.constant" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\louis\Assignment\src\com\company" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -79,12 +103,15 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.company.Main" />
       <module name="Assignment" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.memo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -95,18 +122,18 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="7d6817f1-d7a9-4a57-a481-b3a3427b8bbe" name="Default Changelist" comment="" />
-      <created>1572575470046</created>
+      <changelist id="0d236e30-b741-4f5f-abe1-739c15971944" name="Default Changelist" comment="" />
+      <created>1572617243767</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1572575470046</updated>
-      <workItem from="1572575473846" duration="5247000" />
-      <workItem from="1572598382790" duration="5039000" />
+      <updated>1572617243767</updated>
+      <workItem from="1572617247241" duration="2921000" />
+      <workItem from="1572656517909" duration="8402000" />
+      <workItem from="1572705598487" duration="2612000" />
+      <workItem from="1572708508973" duration="58000" />
+      <workItem from="1572760924143" duration="17945000" />
     </task>
     <servers />
   </component>

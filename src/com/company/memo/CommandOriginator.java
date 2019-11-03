@@ -1,24 +1,31 @@
 package com.company.memo;
 
 import com.company.command.Command;
-import java.util.LinkedList;
 
-public class Originator {
+public class CommandOriginator {
 
   private Command command;
 
-  public Originator() {
+  public CommandOriginator() {
   }
 
-  public Originator(Command command) {
+  public CommandOriginator(Command command) {
     this.command = command;
   }
 
-  public void setMemento(Memento<Command> memento) {
-    this.command = memento.getMemo();
+  public Command getCommand() {
+    return command;
   }
 
-  public Memento<Command> createMemento() {
-    return new Memento(command);
+  public void setCommand(Command command) {
+    this.command = command;
+  }
+
+  public void saveMemento(CommandMemento commandMemento) {
+    this.command = commandMemento.getCommand();
+  }
+
+  public CommandMemento createMemento() {
+    return new CommandMemento(command);
   }
 }

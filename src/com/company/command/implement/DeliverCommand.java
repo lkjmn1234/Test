@@ -1,18 +1,31 @@
 package com.company.command.implement;
 
+import com.company.Service.AppService;
 import com.company.command.Command;
 import com.company.product.CoffeeProduct;
 
-public class DeliverProductCommand implements Command {
+public class DeliverCommand implements Command {
 
-  CoffeeProduct product;
+  private CoffeeProduct product;
+  private AppService appService = AppService.getInstance();
 
-  public DeliverProductCommand(CoffeeProduct product) {
+  public DeliverCommand(CoffeeProduct product) {
     this.product = product;
   }
 
   @Override
   public void execute() {
+    product.setQty(product.getQty()-1);
+    appService.updateProduct(product);
+  }
 
+  @Override
+  public void undo() {
+
+  }
+
+  @Override
+  public String getName() {
+    return this.getName();
   }
 }

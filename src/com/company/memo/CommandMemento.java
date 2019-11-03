@@ -1,18 +1,21 @@
 package com.company.memo;
 
-public class Memento<T> {
+import com.company.command.Command;
+import java.util.LinkedList;
 
-  private T memo;
+public class CommandMemento {
 
-  public Memento(T memo) {
-    this.memo = memo;
+  private Command command;
+
+  public CommandMemento(Command command) {
+    this.command = command;
   }
 
-  public T getMemo() {
-    return memo;
+  public Command getCommand() {
+    return command;
   }
 
-  public void setMemo(T memo) {
-    this.memo = memo;
+  public void setCommand(Command command) {
+    this.command = command;
   }
 }

@@ -1,7 +1,10 @@
 package com.company.command;
 
-public interface CommandFactory {
+public interface Command {
 
   void execute();
 
+  void undo();
+
+  String getName();
 }

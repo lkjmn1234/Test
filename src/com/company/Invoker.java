@@ -1,27 +1,66 @@
 package com.company;
 
 import com.company.command.Command;
-import com.company.command.implement.UndoCommand;
-import java.util.LinkedList;
+import com.company.memo.Caretaker;
+import com.company.memo.CommandMemento;
+import com.company.memo.CommandOriginator;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class Invoker {
 
-  private LinkedList<Command> orders = new LinkedList<>();
-  private LinkedList<Command> history = new LinkedList<>();
+  private CommandOriginator commandOriginator;
 
-  public void addOrder(Command command) {
-    orders.add(command);
-  }
+  private static Invoker instance = null;
+  private Caretaker<CommandMemento> caretakerNormal;
+  private Caretaker<CommandMemento> caretakerReverse;
 
-  public void cancelOrder(Command command) {
-    orders.remove(command);
-  }
+  private List<String> actionHistory;
 
-  public void sendOrders() {
-
-    while (!orders.isEmpty()) {
-      Command cmd = orders.poll();
-      cmd.execute();
+  static Invoker getInstance() {
+    if (instance != null) {
+      return instance;
     }
+    return new Invoker();
+  }
+
+  private Invoker() {
+    caretakerNormal = new Caretaker<>();
+    caretakerReverse = new Caretaker<>();
+    commandOriginator = new CommandOriginator();
+    actionHistory = new ArrayList<>();
+  }
+
+
+  void execute(Command command) {
+    commandOriginator.setCommand(command);
+    commandOriginator.getCommand().execute();
+    caretakerNormal.push(commandOriginator.createMemento());
+    actionHistory.add(command.getName() + " - execute");
+  }
+
+  void undo() {
+    Optional<CommandMemento> targetCommand = caretakerNormal.pop();
+    targetCommand.ifPresent(a -> {
+      commandOriginator.saveMemento(a);
+      commandOriginator.getCommand().undo();
+      caretakerReverse.push(a);
+      actionHistory.add(a.getCommand().getName() + " - undo");
+    });
+  }
+
+  void redo() {
+    Optional<CommandMemento> targetCommand = caretakerReverse.pop();
+    targetCommand.ifPresent(a -> {
+      commandOriginator.saveMemento(a);
+      commandOriginator.getCommand().execute();
+      caretakerNormal.push(a);
+      actionHistory.add(a.getCommand().getName() + " - redo");
+    });
+  }
+
+  List<String> getCommandHistory() {
+    return actionHistory;
   }
 }

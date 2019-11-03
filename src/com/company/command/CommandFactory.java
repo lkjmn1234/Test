@@ -1,5 +1,8 @@
 package com.company.command;
 
-public class CommandFactory {
+import com.company.product.CoffeeProduct;
 
+public interface CommandFactory {
+
+  Command produceCommand();
 }
