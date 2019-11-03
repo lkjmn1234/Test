@@ -1,8 +1,7 @@
 package com.company.command;
 
-public interface Command {
+public interface CommandFactory {
 
   void execute();
 
-  void unExecute();
 }

@@ -1,9 +1,5 @@
 package com.company.product;
 
-public class CoffeeCandyFactory implements ProductFactory{
+public class CoffeeCandyFactory {
 
-  @Override
-  public CoffeeProduct manufactureProduct() {
-    return new CoffeeCandy();
-  }
 }

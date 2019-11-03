@@ -1,23 +1,17 @@
 package com.company.command.implement;
 
-import com.company.actor.Actor;
 import com.company.command.Command;
+import com.company.product.CoffeeProduct;
 
 public class ReceiveProductCommand implements Command {
+  CoffeeProduct coffeeProduct;
 
-  Actor actor;
-
-  public ReceiveProductCommand(Actor actor) {
-    this.actor = actor;
+  public ReceiveProductCommand(CoffeeProduct coffeeProduct) {
+    this.coffeeProduct = coffeeProduct;
   }
 
   @Override
   public void execute() {
-
-  }
-
-  @Override
-  public void unExecute() {
 
   }
 }
