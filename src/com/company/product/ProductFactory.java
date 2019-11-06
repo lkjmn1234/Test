@@ -2,5 +2,5 @@ package com.company.product;
 
 public interface ProductFactory {
 
-  CoffeeProduct produceProduct();
+  CoffeeProduct produceProduct(int product) throws Exception;
 }

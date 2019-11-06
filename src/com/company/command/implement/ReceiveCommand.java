@@ -21,11 +21,12 @@ public class ReceiveCommand implements Command {
 
   @Override
   public void undo() {
-
+    product.setQty(product.getQty() - 1);
+    appService.updateProduct(product);
   }
 
   @Override
   public String getName() {
-    return this.getName();
+    return this.getClass().getSimpleName();
   }
 }

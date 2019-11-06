@@ -20,11 +20,11 @@ public class ShowCommand implements Command {
 
   @Override
   public void undo() {
-
+    System.out.println("No Action for undo show command");
   }
 
   @Override
   public String getName() {
-    return this.getName();
+    return this.getClass().getSimpleName();
   }
 }

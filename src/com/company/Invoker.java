@@ -12,18 +12,20 @@ public class Invoker {
 
   private CommandOriginator commandOriginator;
 
-  private static Invoker instance = null;
+  private static Invoker instance = new Invoker();
   private Caretaker<CommandMemento> caretakerNormal;
   private Caretaker<CommandMemento> caretakerReverse;
 
   private List<String> actionHistory;
 
-  static Invoker getInstance() {
+  public static Invoker getInstance() {
     if (instance != null) {
       return instance;
     }
     return new Invoker();
   }
+
+  public static void init() {}
 
   private Invoker() {
     caretakerNormal = new Caretaker<>();
@@ -31,7 +33,6 @@ public class Invoker {
     commandOriginator = new CommandOriginator();
     actionHistory = new ArrayList<>();
   }
-
 
   void execute(Command command) {
     commandOriginator.setCommand(command);
@@ -42,22 +43,24 @@ public class Invoker {
 
   void undo() {
     Optional<CommandMemento> targetCommand = caretakerNormal.pop();
-    targetCommand.ifPresent(a -> {
-      commandOriginator.saveMemento(a);
-      commandOriginator.getCommand().undo();
-      caretakerReverse.push(a);
-      actionHistory.add(a.getCommand().getName() + " - undo");
-    });
+    targetCommand.ifPresent(
+        a -> {
+          commandOriginator.saveMemento(a);
+          commandOriginator.getCommand().undo();
+          caretakerReverse.push(a);
+          actionHistory.add(a.getCommand().getName() + " - undo");
+        });
   }
 
   void redo() {
     Optional<CommandMemento> targetCommand = caretakerReverse.pop();
-    targetCommand.ifPresent(a -> {
-      commandOriginator.saveMemento(a);
-      commandOriginator.getCommand().execute();
-      caretakerNormal.push(a);
-      actionHistory.add(a.getCommand().getName() + " - redo");
-    });
+    targetCommand.ifPresent(
+        a -> {
+          commandOriginator.saveMemento(a);
+          commandOriginator.getCommand().execute();
+          caretakerNormal.push(a);
+          actionHistory.add(a.getCommand().getName() + " - redo");
+        });
   }
 
   List<String> getCommandHistory() {

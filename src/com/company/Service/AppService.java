@@ -1,8 +1,8 @@
 package com.company.Service;
 
-
 import com.company.product.CoffeeProduct;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AppService {
 
@@ -13,8 +13,7 @@ public class AppService {
     return instance;
   }
 
-  public static void init() {
-  }
+  public static void init() {}
 
   public void updateProduct(CoffeeProduct product) {
     for (CoffeeProduct c : allProduct) {
@@ -25,6 +24,9 @@ public class AppService {
     }
   }
 
+  public List<CoffeeProduct> getAllProduct() {
+    return this.allProduct;
+  }
 
   public ArrayList<CoffeeProduct> searchProduct(int productID) {
     ArrayList<CoffeeProduct> result = new ArrayList<>();
