@@ -6,6 +6,7 @@ import com.company.command.CommandFactory;
 import com.company.command.CreateCommandFactory;
 import com.company.constant.CommandConstant;
 import com.company.constant.ProductConstant;
+import com.company.menu.MenuHandler;
 import com.company.product.CoffeeProduct;
 import com.company.product.CoffeeProductFactory;
 
@@ -33,6 +34,7 @@ public class Main {
     Invoker invoker = Invoker.getInstance();
     AppService appService = AppService.getInstance();
 
-
+    MenuHandler menuHandler = new MenuHandler();
+    menuHandler.executeMenu();
   }
 }

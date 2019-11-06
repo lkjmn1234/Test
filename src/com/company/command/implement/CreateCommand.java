@@ -15,12 +15,13 @@ public class CreateCommand implements Command {
 
   @Override
   public void execute() {
-    appService.addProduct(product);
+    if (appService.searchProduct(product.getProductID()).size() == 0)
+      appService.addProduct(product);
   }
 
   @Override
   public void undo() {
-    appService.removeProduct(product.getProductID());
+    appService.removeProduct(product);
   }
 
   @Override

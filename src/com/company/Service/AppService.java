@@ -49,12 +49,7 @@ public class AppService {
     return isSuccess;
   }
 
-  public boolean removeProduct(int productID) {
-    for (CoffeeProduct p : allProduct) {
-      if (p.getProductID() == productID) {
-        return allProduct.remove(p);
-      }
-    }
-    return false;
+  public boolean removeProduct(CoffeeProduct product) {
+    return allProduct.remove(product);
   }
 }
