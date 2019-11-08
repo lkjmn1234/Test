@@ -24,22 +24,26 @@ public class CaseMenu {
       case "Create Product":
         menu.add("Exit Program");
         menu.add("Return to Main Menu");
-        menu.add("Enter Application Codes");
+        menu.add("Create Candy");
+        menu.add("Create Powder");
         break;
       case "Show Product":
         menu.add("Exit Program");
         menu.add("Return to Main Menu");
-        menu.add("Enter Module Codes");
+        menu.add("Show Candy");
+        menu.add("Show Powder");
         break;
       case "Buy Product":
         menu.add("Exit Program");
         menu.add("Return to Main Menu");
-        menu.add("Enter Table Codes");
+        menu.add("Buy Candy");
+        menu.add("Buy Powder");
         break;
       case "Deliver Product":
         menu.add("Exit Program");
         menu.add("Return to Main Menu");
-        menu.add("Enter Attribute Codes");
+        menu.add("Deliver Candy");
+        menu.add("Deliver Powder");
         break;
       default:
         System.out.println("Invalid Choice");

@@ -95,8 +95,8 @@ public class MenuHandler {
         choiceHandler("Main");
         break;
       case 2:
-        System.out.println("Sub Routine to enter Application Codes");
-        System.out.println("MenuLevel keyword is " + menuLevel);
+        break;
+      case 3:
         break;
       default:
         isValid = false;
@@ -120,6 +120,8 @@ public class MenuHandler {
         System.out.println("Sub Routine to enter Module Codes");
         isValid = false;
         break;
+      case 3:
+        break;
       default:
         isValid = false;
         System.out.println("Invalid Choice");
@@ -141,6 +143,8 @@ public class MenuHandler {
         System.out.println("Sub Routine to enter Table Codes");
         isValid = false;
         break;
+      case 3:
+        break;
       default:
         isValid = false;
         System.out.println("Invalid Choice");
@@ -161,6 +165,8 @@ public class MenuHandler {
       case 2:
         System.out.println("Sub Routine to enter Attribute Codes");
         isValid = false;
+        break;
+      case 3:
         break;
       default:
         isValid = false;
