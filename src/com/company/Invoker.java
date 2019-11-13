@@ -34,14 +34,14 @@ public class Invoker {
     actionHistory = new ArrayList<>();
   }
 
-  void execute(Command command) {
+  public void execute(Command command) {
     commandOriginator.setCommand(command);
     commandOriginator.getCommand().execute();
     caretakerNormal.push(commandOriginator.createMemento());
     actionHistory.add(command.getName() + " - execute");
   }
 
-  void undo() {
+  public void undo() {
     Optional<CommandMemento> targetCommand = caretakerNormal.pop();
     targetCommand.ifPresent(
         a -> {
@@ -52,7 +52,7 @@ public class Invoker {
         });
   }
 
-  void redo() {
+  public void redo() {
     Optional<CommandMemento> targetCommand = caretakerReverse.pop();
     targetCommand.ifPresent(
         a -> {
@@ -63,7 +63,12 @@ public class Invoker {
         });
   }
 
-  List<String> getCommandHistory() {
+  public void clear() {
+    caretakerNormal = new Caretaker<>();
+    caretakerReverse = new Caretaker<>();
+  }
+
+  public List<String> getCommandHistory() {
     return actionHistory;
   }
 }

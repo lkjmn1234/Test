@@ -17,12 +17,14 @@ public class ReceiveCommand implements Command {
   public void execute() {
     product.setQty(product.getQty() + 1);
     appService.updateProduct(product);
+    System.out.println("ReceiveCommand executed");
   }
 
   @Override
   public void undo() {
     product.setQty(product.getQty() - 1);
     appService.updateProduct(product);
+    System.out.println("ReceiveCommand undo");
   }
 
   @Override

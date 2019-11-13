@@ -17,12 +17,14 @@ public class DeliverCommand implements Command {
   public void execute() {
     product.setQty(product.getQty()-1);
     appService.updateProduct(product);
+    System.out.println("DeliverCommand executed");
   }
 
   @Override
   public void undo() {
     product.setQty(product.getQty()+1);
     appService.updateProduct(product);
+    System.out.println("DeliverCommand undo");
   }
 
   @Override

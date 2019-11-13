@@ -13,7 +13,7 @@ public class Caretaker<T> {
   }
 
   public void push(T item) {
-    memento.add(0, item);
+    memento.add(item);
   }
 
   public Optional<T> pop() {

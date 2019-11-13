@@ -35,6 +35,9 @@ public class CoffeeCandy extends CoffeeProduct {
     final StringBuffer sb = new StringBuffer("CoffeeCandy{");
     sb.append("noOfCandy=").append(noOfCandy);
     sb.append(", caloriesPerCandy=").append(caloriesPerCandy);
+    sb.append(", name='").append(super.getName()).append('\'');
+    sb.append(", productID=").append(super.getProductID());
+    sb.append(", qty=").append(super.getQty());
     sb.append('}');
     return sb.toString();
   }

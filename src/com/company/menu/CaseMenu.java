@@ -62,12 +62,14 @@ public class CaseMenu {
     }
     i = i - 1;
     System.out.println("Select an option from 0 to " + i + ":");
+    if (menuLevel.equals("Show Product")) System.out.println("* for show all");
   }
 
   public int getChoice() {
     Scanner in = new Scanner(System.in);
     String inputChoice = in.nextLine();
-    choice = Integer.parseInt(inputChoice);
+    if ("*".equals(inputChoice)) choice = -1;
+    else choice = Integer.parseInt(inputChoice);
     return choice;
   }
 }

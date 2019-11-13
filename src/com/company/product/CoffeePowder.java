@@ -24,6 +24,9 @@ public class CoffeePowder extends CoffeeProduct {
   public String toString() {
     final StringBuffer sb = new StringBuffer("CoffeePowder{");
     sb.append("weight=").append(weight);
+    sb.append(", name='").append(super.getName()).append('\'');
+    sb.append(", productID=").append(super.getProductID());
+    sb.append(", qty=").append(super.getQty());
     sb.append('}');
     return sb.toString();
   }

@@ -15,7 +15,7 @@ public class ShowCommand implements Command {
 
   @Override
   public void execute() {
-    appService.searchProduct(product.getProductID());
+    System.out.println(appService.searchProduct(product.getProductID()));
   }
 
   @Override

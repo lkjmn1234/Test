@@ -1,14 +1,46 @@
 package com.company.menu;
 
+import com.company.Invoker;
+import com.company.Service.AppService;
+import com.company.command.Command;
+import com.company.constant.CommandConstant;
+import com.company.constant.FactoryConstant;
+import com.company.constant.ProductConstant;
+import com.company.factory.Factory;
+import com.company.factory.FactoryProducer;
+import com.company.product.CoffeeProduct;
+
 public class MenuHandler {
   CaseMenu rMenu = new CaseMenu();
   boolean isValid = true;
   int countExec = 0;
 
+  Factory productFactory = FactoryProducer.getFactory(FactoryConstant.PRODUCT);
+  Factory commandFactory = FactoryProducer.getFactory(FactoryConstant.COMMAND);
+
+  CoffeeProduct candy = productFactory.produceProduct(ProductConstant.CANDY);
+  CoffeeProduct powder = productFactory.produceProduct(ProductConstant.POWDER);
+  CoffeeProduct base = productFactory.produceProduct(ProductConstant.DEFAULT);
+
+  Command createCandy = commandFactory.produceCommand(candy, CommandConstant.CREATE);
+  Command createPowder = commandFactory.produceCommand(powder, CommandConstant.CREATE);
+  Command deliverCandy = commandFactory.produceCommand(candy, CommandConstant.DELIVER);
+  Command deliverPowder = commandFactory.produceCommand(powder, CommandConstant.DELIVER);
+  Command receiveCandy = commandFactory.produceCommand(candy, CommandConstant.RECEIVE);
+  Command receivePowder = commandFactory.produceCommand(powder, CommandConstant.RECEIVE);
+  Command showCandy = commandFactory.produceCommand(candy, CommandConstant.SHOW);
+  Command showPowder = commandFactory.produceCommand(powder, CommandConstant.SHOW);
+  Command showAll = commandFactory.produceCommand(base, CommandConstant.SHOW);
+
+  Invoker invoker = Invoker.getInstance();
+  AppService appService = AppService.getInstance();
+
+  public MenuHandler() throws Exception {}
+
   public void executeMenu() {
     do {
       countExec++;
-      System.out.println("Execute Menu = [Main] ");
+      System.out.println("\n\nExecute Menu = [Main] ");
       rMenu.displayMenu("Main");
       choiceHandler("Main");
     } while (isValid);
@@ -95,8 +127,10 @@ public class MenuHandler {
         choiceHandler("Main");
         break;
       case 2:
+        invoker.execute(createCandy);
         break;
       case 3:
+        invoker.execute(createPowder);
         break;
       default:
         isValid = false;
@@ -107,6 +141,9 @@ public class MenuHandler {
 
   public void showProduct(int choice) {
     switch (choice) {
+      case -1:
+        invoker.execute(showAll);
+        break;
       case 0:
         System.out.println("Exiting Program");
         isValid = false;
@@ -117,10 +154,10 @@ public class MenuHandler {
         choiceHandler("Main");
         break;
       case 2:
-        System.out.println("Sub Routine to enter Module Codes");
-        isValid = false;
+        invoker.execute(showCandy);
         break;
       case 3:
+        invoker.execute(showPowder);
         break;
       default:
         isValid = false;
@@ -140,10 +177,10 @@ public class MenuHandler {
         choiceHandler("Main");
         break;
       case 2:
-        System.out.println("Sub Routine to enter Table Codes");
-        isValid = false;
+        invoker.execute(receiveCandy);
         break;
       case 3:
+        invoker.execute(receivePowder);
         break;
       default:
         isValid = false;
@@ -163,10 +200,10 @@ public class MenuHandler {
         choiceHandler("Main");
         break;
       case 2:
-        System.out.println("Sub Routine to enter Attribute Codes");
-        isValid = false;
+        invoker.execute(deliverCandy);
         break;
       case 3:
+        invoker.execute(deliverPowder);
         break;
       default:
         isValid = false;
@@ -176,14 +213,14 @@ public class MenuHandler {
   }
 
   public void undoLastCommand() {
-    isValid = true;
+    invoker.undo();
   }
 
   public void redoLastCommand() {
-    isValid = true;
+    invoker.redo();
   }
 
   public void displayActionList() {
-    isValid = true;
+    System.out.println(invoker.getCommandHistory());
   }
 }

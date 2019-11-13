@@ -2,7 +2,6 @@ package com.company.Service;
 
 import com.company.product.CoffeeProduct;
 import java.util.ArrayList;
-import java.util.List;
 
 public class AppService {
 
@@ -24,29 +23,25 @@ public class AppService {
     }
   }
 
-  public List<CoffeeProduct> getAllProduct() {
+  public ArrayList<CoffeeProduct> getAllProduct() {
     return this.allProduct;
   }
 
   public ArrayList<CoffeeProduct> searchProduct(int productID) {
     ArrayList<CoffeeProduct> result = new ArrayList<>();
-    boolean found = false;
     for (CoffeeProduct c : allProduct) {
       if (c.getProductID() == productID) {
         result.add(c);
-        found = true;
       }
     }
-    if (productID == 0) {
-      found = true;
-      result = allProduct;
+    if (productID == -1) {
+      result = this.getAllProduct();
     }
-    return (found) ? result : null;
+    return result;
   }
 
   public boolean addProduct(CoffeeProduct product) {
-    boolean isSuccess = allProduct.add(product);
-    return isSuccess;
+    return allProduct.add(product);
   }
 
   public boolean removeProduct(CoffeeProduct product) {

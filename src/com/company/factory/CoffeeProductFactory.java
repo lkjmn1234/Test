@@ -11,6 +11,8 @@ public class CoffeeProductFactory implements Factory {
   @Override
   public CoffeeProduct produceProduct(int product) throws Exception {
     switch (product) {
+      case ProductConstant.DEFAULT:
+        return new CoffeeProduct("default",-1);
       case ProductConstant.CANDY:
         return new CoffeeCandy("CoffeeCandy", 1, 5, 100);
       case ProductConstant.POWDER:
