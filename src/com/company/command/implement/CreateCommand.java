@@ -9,7 +9,10 @@ public class CreateCommand implements Command {
   private CoffeeProduct product;
   private AppService appService = AppService.getInstance();
 
-  public CreateCommand(CoffeeProduct product) {
+  public CreateCommand(CoffeeProduct product) throws Exception {
+    if (product == null) {
+      throw new Exception("product cannot null");
+    }
     this.product = product;
   }
 

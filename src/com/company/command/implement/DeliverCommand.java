@@ -10,13 +10,22 @@ public class DeliverCommand implements Command {
   private int qty;
   private AppService appService = AppService.getInstance();
 
-  public DeliverCommand(CoffeeProduct product, int qty) {
+  public DeliverCommand(CoffeeProduct product, int qty) throws Exception {
+    if (product == null) {
+      throw new Exception("product cannot null");
+    }
+    if (qty < 0) {
+      throw new Exception("quantity cannot negative");
+    }
     this.product = product;
     this.qty = qty;
   }
 
   @Override
-  public void execute() {
+  public void execute() throws Exception {
+    if (product.getQty() - qty < 0) {
+      throw new Exception("quantity cannot negative");
+    }
     product.setQty(product.getQty() - qty);
     appService.updateProduct(product);
   }

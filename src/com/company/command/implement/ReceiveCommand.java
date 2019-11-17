@@ -10,7 +10,13 @@ public class ReceiveCommand implements Command {
   private AppService appService = AppService.getInstance();
   private int qty;
 
-  public ReceiveCommand(CoffeeProduct product, int qty) {
+  public ReceiveCommand(CoffeeProduct product, int qty) throws Exception {
+    if (product == null) {
+      throw new Exception("product cannot null");
+    }
+    if (qty < 0) {
+      throw new Exception("quantity cannot negative");
+    }
     this.product = product;
     this.qty = qty;
   }

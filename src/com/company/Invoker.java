@@ -33,7 +33,7 @@ public class Invoker {
     commandOriginator = new CommandOriginator();
   }
 
-  public void execute(Command command) {
+  public void execute(Command command) throws Exception {
     commandOriginator.setCommand(command);
     commandOriginator.getCommand().execute();
     if (!(command instanceof ShowCommand)) {
@@ -57,7 +57,11 @@ public class Invoker {
     targetCommand.ifPresent(
         a -> {
           commandOriginator.saveMemento(a);
-          commandOriginator.getCommand().execute();
+          try {
+            commandOriginator.getCommand().execute();
+          } catch (Exception e) {
+            e.printStackTrace();
+          }
           caretakerReverse.push(a);
         });
     System.out.println("redo completed.");

@@ -13,7 +13,10 @@ public class ShowCommand implements Command {
   private List<CoffeeProduct> product;
   private boolean showAll;
 
-  public ShowCommand(List<CoffeeProduct> product, boolean showAll) {
+  public ShowCommand(List<CoffeeProduct> product, boolean showAll) throws Exception {
+    if (product == null) {
+      throw new Exception("product cannot null");
+    }
     this.product = product;
     this.showAll = showAll;
   }

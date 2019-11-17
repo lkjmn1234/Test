@@ -61,7 +61,6 @@ public class MenuHandler {
         displayActionList();
         break;
       default:
-        isValid = false;
         System.out.println("Error in choice Handling");
     }
   }
@@ -128,7 +127,6 @@ public class MenuHandler {
         }
         break;
       default:
-        isValid = false;
         System.out.println("Invalid Choice\n");
         break;
     }
