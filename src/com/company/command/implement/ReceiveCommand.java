@@ -8,27 +8,27 @@ public class ReceiveCommand implements Command {
 
   private CoffeeProduct product;
   private AppService appService = AppService.getInstance();
+  private int qty;
 
-  public ReceiveCommand(CoffeeProduct product) {
+  public ReceiveCommand(CoffeeProduct product, int qty) {
     this.product = product;
+    this.qty = qty;
   }
 
   @Override
   public void execute() {
-    product.setQty(product.getQty() + 1);
+    product.setQty(product.getQty() + qty);
     appService.updateProduct(product);
-    System.out.println("ReceiveCommand executed");
   }
 
   @Override
   public void undo() {
-    product.setQty(product.getQty() - 1);
+    product.setQty(product.getQty() - qty);
     appService.updateProduct(product);
-    System.out.println("ReceiveCommand undo");
   }
 
   @Override
   public String getName() {
-    return this.getClass().getSimpleName();
+    return "Received " + qty + " " + product.getName() + " (" + product.getProductID() + ")";
   }
 }

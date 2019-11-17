@@ -5,45 +5,29 @@ import java.util.Scanner;
 
 public class CaseMenu {
 
-  private ArrayList<String> menu = new ArrayList<>();
-  private int choice = -1;
+  private String choice = "";
   Scanner in = new Scanner(System.in);
 
   public void setupMenu(String menuLevel) {
     switch (menuLevel) {
       case "Main":
-        menu.add("Exit Program");
-        menu.add("Create Prodcut");
-        menu.add("Show Prodcut");
-        menu.add("Buy Prodcut");
-        menu.add("Deliver Prodcut");
-        menu.add("Undo Last Command");
-        menu.add("Redo Last Command");
-        menu.add("Display Action List");
+        System.out.println("Coffee inventory management system");
+        System.out.println("Please enter command: [a | v | c | s | u | r | sl | x]");
+        System.out
+            .println("a = add product, v = view products, c = collect product, s = ship product,");
+        System.out.println("u = undo, r = redo, sl = show list undo/redo, x = exit system\n");
         break;
-      case "Create Product":
-        menu.add("Exit Program");
-        menu.add("Return to Main Menu");
-        menu.add("Create Candy");
-        menu.add("Create Powder");
+      case "add product":
+        System.out.println("Enter Coffee type (cc=Coffee Candy/cp=Coffee Powder)");
         break;
-      case "Show Product":
-        menu.add("Exit Program");
-        menu.add("Return to Main Menu");
-        menu.add("Show Candy");
-        menu.add("Show Powder");
+      case "view products":
+        System.out.println("Enter product Id. (* to show all):");
         break;
-      case "Buy Product":
-        menu.add("Exit Program");
-        menu.add("Return to Main Menu");
-        menu.add("Buy Candy");
-        menu.add("Buy Powder");
+      case "collect product":
+        System.out.println("Enter code:");
         break;
-      case "Deliver Product":
-        menu.add("Exit Program");
-        menu.add("Return to Main Menu");
-        menu.add("Deliver Candy");
-        menu.add("Deliver Powder");
+      case "ship product":
+        System.out.println("Enter code:");
         break;
       default:
         System.out.println("Invalid Choice");
@@ -51,25 +35,12 @@ public class CaseMenu {
   }
 
   public void displayMenu(String menuLevel) {
-    menu.clear();
     setupMenu(menuLevel);
-    System.out.println("Coffee inventory management system");
-    System.out.println("==================================");
-    int i = 0;
-    for (String s : menu) {
-      System.out.println(i + ". " + s);
-      ++i;
-    }
-    i = i - 1;
-    System.out.println("Select an option from 0 to " + i + ":");
-    if (menuLevel.equals("Show Product")) System.out.println("* for show all");
   }
 
-  public int getChoice() {
-    Scanner in = new Scanner(System.in);
-    String inputChoice = in.nextLine();
-    if ("*".equals(inputChoice)) choice = -1;
-    else choice = Integer.parseInt(inputChoice);
+  public String getChoice() {
+    in = new Scanner(System.in);
+    choice = in.nextLine();
     return choice;
   }
 }

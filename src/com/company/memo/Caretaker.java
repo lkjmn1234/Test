@@ -24,6 +24,10 @@ public class Caretaker<T> {
     }
   }
 
+  public List<T> getMemento() {
+    return memento;
+  }
+
   void clear() {
     memento.clear();
   }

@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.command.Command;
+import com.company.command.implement.ShowCommand;
 import com.company.memo.Caretaker;
 import com.company.memo.CommandMemento;
 import com.company.memo.CommandOriginator;
@@ -16,8 +17,6 @@ public class Invoker {
   private Caretaker<CommandMemento> caretakerNormal;
   private Caretaker<CommandMemento> caretakerReverse;
 
-  private List<String> actionHistory;
-
   public static Invoker getInstance() {
     if (instance != null) {
       return instance;
@@ -25,42 +24,43 @@ public class Invoker {
     return new Invoker();
   }
 
-  public static void init() {}
+  public static void init() {
+  }
 
   private Invoker() {
     caretakerNormal = new Caretaker<>();
     caretakerReverse = new Caretaker<>();
     commandOriginator = new CommandOriginator();
-    actionHistory = new ArrayList<>();
   }
 
   public void execute(Command command) {
     commandOriginator.setCommand(command);
     commandOriginator.getCommand().execute();
-    caretakerNormal.push(commandOriginator.createMemento());
-    actionHistory.add(command.getName() + " - execute");
+    if (!(command instanceof ShowCommand)) {
+      caretakerReverse.push(commandOriginator.createMemento());
+    }
   }
 
   public void undo() {
-    Optional<CommandMemento> targetCommand = caretakerNormal.pop();
-    targetCommand.ifPresent(
-        a -> {
-          commandOriginator.saveMemento(a);
-          commandOriginator.getCommand().undo();
-          caretakerReverse.push(a);
-          actionHistory.add(a.getCommand().getName() + " - undo");
-        });
-  }
-
-  public void redo() {
     Optional<CommandMemento> targetCommand = caretakerReverse.pop();
     targetCommand.ifPresent(
         a -> {
           commandOriginator.saveMemento(a);
-          commandOriginator.getCommand().execute();
+          commandOriginator.getCommand().undo();
           caretakerNormal.push(a);
-          actionHistory.add(a.getCommand().getName() + " - redo");
         });
+    System.out.println("undo completed.");
+  }
+
+  public void redo() {
+    Optional<CommandMemento> targetCommand = caretakerNormal.pop();
+    targetCommand.ifPresent(
+        a -> {
+          commandOriginator.saveMemento(a);
+          commandOriginator.getCommand().execute();
+          caretakerReverse.push(a);
+        });
+    System.out.println("redo completed.");
   }
 
   public void clear() {
@@ -68,7 +68,23 @@ public class Invoker {
     caretakerReverse = new Caretaker<>();
   }
 
-  public List<String> getCommandHistory() {
-    return actionHistory;
+  public void getCommandHistory() {
+    System.out.println("Undo List:");
+    if (caretakerReverse.getMemento().size() > 0) {
+      caretakerReverse.getMemento().forEach(m -> {
+        System.out.println(m.getCommand().getName());
+      });
+    } else {
+      System.out.println("Empty\n");
+    }
+    System.out.println();
+    System.out.println("Redo List:");
+    if (caretakerNormal.getMemento().size() > 0) {
+      caretakerNormal.getMemento().forEach(m -> {
+        System.out.println(m.getCommand().getName());
+      });
+    } else {
+      System.out.println("Empty\n");
+    }
   }
 }

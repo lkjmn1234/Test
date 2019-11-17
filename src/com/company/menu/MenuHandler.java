@@ -9,8 +9,10 @@ import com.company.constant.ProductConstant;
 import com.company.factory.Factory;
 import com.company.factory.FactoryProducer;
 import com.company.product.CoffeeProduct;
+import java.util.Scanner;
 
 public class MenuHandler {
+
   CaseMenu rMenu = new CaseMenu();
   boolean isValid = true;
   int countExec = 0;
@@ -18,29 +20,15 @@ public class MenuHandler {
   Factory productFactory = FactoryProducer.getFactory(FactoryConstant.PRODUCT);
   Factory commandFactory = FactoryProducer.getFactory(FactoryConstant.COMMAND);
 
-  CoffeeProduct candy = productFactory.produceProduct(ProductConstant.CANDY);
-  CoffeeProduct powder = productFactory.produceProduct(ProductConstant.POWDER);
-  CoffeeProduct base = productFactory.produceProduct(ProductConstant.DEFAULT);
-
-  Command createCandy = commandFactory.produceCommand(candy, CommandConstant.CREATE);
-  Command createPowder = commandFactory.produceCommand(powder, CommandConstant.CREATE);
-  Command deliverCandy = commandFactory.produceCommand(candy, CommandConstant.DELIVER);
-  Command deliverPowder = commandFactory.produceCommand(powder, CommandConstant.DELIVER);
-  Command receiveCandy = commandFactory.produceCommand(candy, CommandConstant.RECEIVE);
-  Command receivePowder = commandFactory.produceCommand(powder, CommandConstant.RECEIVE);
-  Command showCandy = commandFactory.produceCommand(candy, CommandConstant.SHOW);
-  Command showPowder = commandFactory.produceCommand(powder, CommandConstant.SHOW);
-  Command showAll = commandFactory.produceCommand(base, CommandConstant.SHOW);
-
   Invoker invoker = Invoker.getInstance();
   AppService appService = AppService.getInstance();
 
-  public MenuHandler() throws Exception {}
+  public MenuHandler() throws Exception {
+  }
 
   public void executeMenu() {
     do {
       countExec++;
-      System.out.println("\n\nExecute Menu = [Main] ");
       rMenu.displayMenu("Main");
       choiceHandler("Main");
     } while (isValid);
@@ -51,25 +39,25 @@ public class MenuHandler {
       case "Main":
         mainMenu(menuLevel, rMenu.getChoice());
         break;
-      case "Create Product":
-        createProduct(menuLevel, rMenu.getChoice());
+      case "add product":
+        createProduct(rMenu.getChoice());
         break;
-      case "Show Product":
+      case "view products":
         showProduct(rMenu.getChoice());
         break;
-      case "Buy Product":
+      case "collect product":
         buyProduct(rMenu.getChoice());
         break;
-      case "Deliver Product":
+      case "ship product":
         deliverProduct(rMenu.getChoice());
         break;
-      case "Undo Last Command":
+      case "undo":
         undoLastCommand();
         break;
-      case "Redo Last Command":
+      case "redo":
         redoLastCommand();
         break;
-      case "Display Action List":
+      case "show list undo/redo":
         displayActionList();
         break;
       default:
@@ -78,137 +66,129 @@ public class MenuHandler {
     }
   }
 
-  public void mainMenu(String menuLevel, int choice) {
+  public void mainMenu(String menuLevel, String choice) {
     switch (choice) {
-      case 0:
-        System.out.println("Exiting Program");
+      case "x":
+        System.out.println("Thanks for using Coffee Inventory Management System!!");
         isValid = false;
         break;
-      case 1:
-        rMenu.displayMenu("Create Product");
-        choiceHandler("Create Product");
+      case "a":
+        rMenu.displayMenu("add product");
+        choiceHandler("add product");
         break;
-      case 2:
-        rMenu.displayMenu("Show Product");
-        choiceHandler("Show Product");
+      case "v":
+        rMenu.displayMenu("view products");
+        choiceHandler("view products");
         break;
-      case 3:
-        rMenu.displayMenu("Buy Product");
-        choiceHandler("Buy Product");
+      case "c":
+        rMenu.displayMenu("collect product");
+        choiceHandler("collect product");
         break;
-      case 4:
-        rMenu.displayMenu("Deliver Product");
-        choiceHandler("Deliver Product");
+      case "s":
+        rMenu.displayMenu("ship product");
+        choiceHandler("ship product");
         break;
-      case 5:
-        choiceHandler("Undo Last Command");
+      case "u":
+        choiceHandler("undo");
         break;
-      case 6:
-        choiceHandler("Redo Last Command");
+      case "r":
+        choiceHandler("redo");
         break;
-      case 7:
-        choiceHandler("Display Action List");
+      case "sl":
+        choiceHandler("show list undo/redo");
         break;
       default:
         System.out.println("Invalid Choice");
     }
   }
 
-  public void createProduct(String menuLevel, int choice) {
+  public void createProduct(String choice) {
     switch (choice) {
-      case 0:
-        System.out.println("Exiting Program");
-        isValid = false;
+      case "cc":
+        System.out.println("Enter product Id, name, number of candy and calories per candy: ");
+        try {
+          Scanner in = new Scanner(System.in);
+          CoffeeProduct candy = productFactory.produceProduct(ProductConstant.CANDY, in.nextLine());
+          Command createCandy = commandFactory.produceCommand(candy, CommandConstant.CREATE, 0);
+          invoker.execute(createCandy);
+        } catch (Exception e) {
+          System.out.println("Invalid input\n");
+        }
         break;
-      case 1:
-        menuLevel = "Main";
-        System.out.println("Applications option 1");
-        rMenu.displayMenu(menuLevel);
-        choiceHandler("Main");
-        break;
-      case 2:
-        invoker.execute(createCandy);
-        break;
-      case 3:
-        invoker.execute(createPowder);
+      case "cp":
+        System.out.println("Enter product Id , name and weight(g): ");
+        try {
+          Scanner in = new Scanner(System.in);
+          CoffeeProduct powder = productFactory
+              .produceProduct(ProductConstant.POWDER, in.nextLine());
+          Command createPowder = commandFactory.produceCommand(powder, CommandConstant.CREATE, 0);
+          invoker.execute(createPowder);
+        } catch (Exception e) {
+          System.out.println("Invalid input\n");
+        }
         break;
       default:
         isValid = false;
-        System.out.println("Invalid Choice");
+        System.out.println("Invalid Choice\n");
         break;
     }
   }
 
-  public void showProduct(int choice) {
-    switch (choice) {
-      case -1:
-        invoker.execute(showAll);
-        break;
-      case 0:
-        System.out.println("Exiting Program");
-        isValid = false;
-        break;
-      case 1:
-        System.out.println("Now in Modules");
-        rMenu.displayMenu("Main");
-        choiceHandler("Main");
-        break;
-      case 2:
-        invoker.execute(showCandy);
-        break;
-      case 3:
-        invoker.execute(showPowder);
-        break;
-      default:
-        isValid = false;
-        System.out.println("Invalid Choice");
-        break;
+  public void showProduct(String choice) {
+    try {
+      Command show = commandFactory
+          .produceCommand(appService.searchProduct(choice),
+              CommandConstant.SHOW, choice.equals("*"));
+      invoker.execute(show);
+    } catch (Exception e) {
+      System.out.println("Invalid input\n");
     }
   }
 
-  public void buyProduct(int choice) {
-    switch (choice) {
-      case 0:
-        System.out.println("Exiting Program");
-        isValid = false;
-        break;
-      case 1:
-        rMenu.displayMenu("Main");
-        choiceHandler("Main");
-        break;
-      case 2:
-        invoker.execute(receiveCandy);
-        break;
-      case 3:
-        invoker.execute(receivePowder);
-        break;
-      default:
-        isValid = false;
-        System.out.println("Invalid Choice");
-        break;
+  public void buyProduct(String choice) {
+    try {
+      CoffeeProduct product = appService.searchProduct(Integer.parseInt(choice));
+      if (product != null) {
+        System.out.println("Quantity to receive:");
+        Scanner in = new Scanner(System.in);
+        int qtyBuy = Integer.parseInt(in.nextLine());
+        Command receive = commandFactory.produceCommand(product, CommandConstant.RECEIVE, qtyBuy);
+        invoker.execute(receive);
+        System.out.println(
+            "Received " + qtyBuy + " packs of Premium Coffee Candy. Current quantity is " + product
+                .getQty());
+      } else {
+        System.out.println("No product\n");
+      }
+    } catch (Exception e) {
+      System.out.println("Invalid input\n");
     }
   }
 
-  public void deliverProduct(int choice) {
-    switch (choice) {
-      case 0:
-        System.out.println("Exiting Program");
-        isValid = false;
-        break;
-      case 1:
-        rMenu.displayMenu("Main");
-        choiceHandler("Main");
-        break;
-      case 2:
-        invoker.execute(deliverCandy);
-        break;
-      case 3:
-        invoker.execute(deliverPowder);
-        break;
-      default:
-        isValid = false;
-        System.out.println("Invalid Choice");
-        break;
+  public void deliverProduct(String choice) {
+    try {
+      CoffeeProduct product = appService.searchProduct(Integer.parseInt(choice));
+      if (product != null) {
+        System.out.println("Quantity to ship:");
+        Scanner in = new Scanner(System.in);
+        int qtyDeliver = Integer.parseInt(in.nextLine());
+        if (product.getQty() > qtyDeliver) {
+          Command deliver = commandFactory
+              .produceCommand(product, CommandConstant.DELIVER, qtyDeliver);
+          invoker.execute(deliver);
+          System.out.println(
+              "Shipped " + qtyDeliver + " packs of Premium Coffee Candy. Current quantity is  "
+                  + product.getQty());
+        } else {
+          System.out.println(
+              "Invalid quantity (current balance is less than required quantity). Try again!!!\n");
+        }
+
+      } else {
+        System.out.println("No product\n");
+      }
+    } catch (Exception e) {
+      System.out.println("Invalid input\n");
     }
   }
 
@@ -221,6 +201,6 @@ public class MenuHandler {
   }
 
   public void displayActionList() {
-    System.out.println(invoker.getCommandHistory());
+    invoker.getCommandHistory();
   }
 }

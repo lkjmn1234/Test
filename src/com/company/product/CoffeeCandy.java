@@ -5,10 +5,7 @@ public class CoffeeCandy extends CoffeeProduct {
   private int noOfCandy;
   private int caloriesPerCandy;
 
-  public CoffeeCandy() {
-  }
-
-  public CoffeeCandy(String name, int productID, int noOfCandy, int caloriesPerCandy) {
+  public CoffeeCandy(int productID, String name, int noOfCandy, int caloriesPerCandy) {
     super(name, productID);
     this.noOfCandy = noOfCandy;
     this.caloriesPerCandy = caloriesPerCandy;
@@ -32,13 +29,12 @@ public class CoffeeCandy extends CoffeeProduct {
 
   @Override
   public String toString() {
-    final StringBuffer sb = new StringBuffer("CoffeeCandy{");
-    sb.append("noOfCandy=").append(noOfCandy);
-    sb.append(", caloriesPerCandy=").append(caloriesPerCandy);
-    sb.append(", name='").append(super.getName()).append('\'');
-    sb.append(", productID=").append(super.getProductID());
-    sb.append(", qty=").append(super.getQty());
-    sb.append('}');
+    final StringBuffer sb = new StringBuffer("Product information \n");
+    sb.append("ID:").append(super.getProductID()).append("\n");
+    sb.append("Name:'").append(super.getName()).append("\n");
+    sb.append("Quantity:").append(super.getQty()).append("\n");
+    sb.append("Number of candies per package:").append(noOfCandy).append("\n");
+    sb.append("Calories Per candy:").append(caloriesPerCandy).append("\n");
     return sb.toString();
   }
 }

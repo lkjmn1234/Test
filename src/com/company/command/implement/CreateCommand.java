@@ -15,24 +15,21 @@ public class CreateCommand implements Command {
 
   @Override
   public void execute() {
-    if (appService.searchProduct(product.getProductID()).size() == 0) {
+    if (appService.searchProduct(product.getProductID()) == null) {
       appService.addProduct(product);
-      System.out.println("CreateCommand executed");
-    }
-    else
-    {
-      System.out.println("Product already created");
+      System.out.println("New product record created.\n");
+    } else {
+      System.out.println("Product already created\n");
     }
   }
 
   @Override
   public void undo() {
     appService.removeProduct(product);
-    System.out.println("CreateCommand undo");
   }
 
   @Override
   public String getName() {
-    return this.getClass().getSimpleName();
+    return "Add " + product.getProductID() + " " + product.getName();
   }
 }

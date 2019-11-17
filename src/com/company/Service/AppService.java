@@ -12,7 +12,8 @@ public class AppService {
     return instance;
   }
 
-  public static void init() {}
+  public static void init() {
+  }
 
   public void updateProduct(CoffeeProduct product) {
     for (CoffeeProduct c : allProduct) {
@@ -27,18 +28,32 @@ public class AppService {
     return this.allProduct;
   }
 
-  public ArrayList<CoffeeProduct> searchProduct(int productID) {
+  public ArrayList<CoffeeProduct> searchProduct(String productID) {
     ArrayList<CoffeeProduct> result = new ArrayList<>();
-    for (CoffeeProduct c : allProduct) {
-      if (c.getProductID() == productID) {
-        result.add(c);
-      }
-    }
-    if (productID == -1) {
+
+    if (productID.equals("*")) {
       result = this.getAllProduct();
+    } else {
+      for (CoffeeProduct c : allProduct) {
+        if (c.getProductID() == Integer.parseInt(productID)) {
+          result.add(c);
+        }
+      }
     }
     return result;
   }
+
+  public CoffeeProduct searchProduct(int productID) {
+    CoffeeProduct result = null;
+    for (CoffeeProduct c : allProduct) {
+      if (c.getProductID() == productID) {
+        result = c;
+        break;
+      }
+    }
+    return result;
+  }
+
 
   public boolean addProduct(CoffeeProduct product) {
     return allProduct.add(product);
