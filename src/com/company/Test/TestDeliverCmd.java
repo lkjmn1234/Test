@@ -11,12 +11,10 @@ import com.company.constant.ProductConstant;
 import com.company.factory.Factory;
 import com.company.factory.FactoryProducer;
 import com.company.product.CoffeeCandy;
-import com.company.product.CoffeePowder;
 import org.junit.Before;
 import org.junit.Test;
 
 public class TestDeliverCmd {
-
 
   Factory productFactory = null;
   Factory commandFactory = null;
@@ -34,8 +32,10 @@ public class TestDeliverCmd {
 
   @Test
   public void testDeliverCandy() throws Exception {
-    CoffeeCandy candy = (CoffeeCandy) productFactory
-        .produceProduct(ProductConstant.CANDY, "1003, Premium Coffee Candy, 50, 15");
+    CoffeeCandy candy =
+        (CoffeeCandy)
+            productFactory.produceProduct(
+                ProductConstant.CANDY, "1003, Premium Coffee Candy, 50, 15");
     Command createCandy = commandFactory.produceCommand(candy, CommandConstant.CREATE, 0);
     invoker.execute(createCandy);
     candy.setQty(10);
@@ -53,8 +53,10 @@ public class TestDeliverCmd {
   public void testDeliverCandyError1() {
     CoffeeCandy candy = null;
     try {
-      candy = (CoffeeCandy) productFactory
-          .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, abc, 15");
+      candy =
+          (CoffeeCandy)
+              productFactory.produceProduct(
+                  ProductConstant.CANDY, "1001, Premium Coffee Candy, abc, 15");
     } catch (Exception e) {
       assertEquals(e.getClass().getSimpleName(), "NumberFormatException");
     }
@@ -64,8 +66,10 @@ public class TestDeliverCmd {
   public void testDeliverCandyError2() {
     CoffeeCandy candy = null;
     try {
-      candy = (CoffeeCandy) productFactory
-          .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, abv");
+      candy =
+          (CoffeeCandy)
+              productFactory.produceProduct(
+                  ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, abv");
     } catch (Exception e) {
       assertEquals(e.getClass().getSimpleName(), "NumberFormatException");
     }
@@ -75,8 +79,10 @@ public class TestDeliverCmd {
   public void testDeliverCandyError3() {
     CoffeeCandy candy = null;
     try {
-      candy = (CoffeeCandy) productFactory
-          .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50");
+      candy =
+          (CoffeeCandy)
+              productFactory.produceProduct(
+                  ProductConstant.CANDY, "1001, Premium Coffee Candy, 50");
     } catch (Exception e) {
       assertEquals(e.getClass().getSimpleName(), "ArrayIndexOutOfBoundsException");
     }
@@ -86,39 +92,34 @@ public class TestDeliverCmd {
   public void testDeliverCandyError4() {
     CoffeeCandy candy = null;
     try {
-      candy = (CoffeeCandy) productFactory
-          .produceProduct(5, "1001, Premium Coffee Candy, 50, 5");
+      candy = (CoffeeCandy) productFactory.produceProduct(5, "1001, Premium Coffee Candy, 50, 5");
     } catch (Exception e) {
       assertEquals(e.getMessage(), "No Such Product");
     }
   }
 
   @Test
-  public void testDeliverCandyError5() {
+  public void testDeliverCandyError5() throws Exception {
     CoffeeCandy candy = null;
-    try {
-      candy = (CoffeeCandy) productFactory
-          .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    candy =
+        (CoffeeCandy)
+            productFactory.produceProduct(
+                ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
     try {
       Command deliverCandy = commandFactory.produceCommand(candy, 5, 0);
     } catch (Exception e) {
       assertEquals(e.getMessage(), "No Such Command");
     }
-
   }
 
   @Test
-  public void testDeliverCandyError6() {
+  public void testDeliverCandyError6() throws Exception {
     CoffeeCandy candy = null;
-    try {
-      candy = (CoffeeCandy) productFactory
-          .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    candy =
+        (CoffeeCandy)
+            productFactory.produceProduct(
+                ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
+
     try {
       Command deliverCandy = commandFactory.produceCommand(null, CommandConstant.DELIVER, 0);
     } catch (Exception e) {
@@ -127,14 +128,14 @@ public class TestDeliverCmd {
   }
 
   @Test
-  public void testDeliverCandyError7() {
+  public void testDeliverCandyError7() throws Exception {
     CoffeeCandy candy = null;
-    try {
-      candy = (CoffeeCandy) productFactory
-          .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+
+    candy =
+        (CoffeeCandy)
+            productFactory.produceProduct(
+                ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
+
     try {
       Command deliverCandy = commandFactory.produceCommand(candy, CommandConstant.DELIVER, 10);
       invoker.execute(deliverCandy);
@@ -142,15 +143,15 @@ public class TestDeliverCmd {
       assertEquals(e.getMessage(), "quantity cannot negative");
     }
   }
+
   @Test
-  public void testDeliverCandyError8() {
+  public void testDeliverCandyError8() throws Exception {
     CoffeeCandy candy = null;
-    try {
-      candy = (CoffeeCandy) productFactory
-          .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    candy =
+        (CoffeeCandy)
+            productFactory.produceProduct(
+                ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
+
     try {
       Command deliverCandy = commandFactory.produceCommand(candy, CommandConstant.DELIVER, -10);
       invoker.execute(deliverCandy);

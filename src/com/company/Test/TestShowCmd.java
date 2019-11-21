@@ -77,14 +77,10 @@ public class TestShowCmd {
   }
 
   @Test
-  public void testCreateCandyError5() {
+  public void testCreateCandyError5() throws Exception {
     CoffeeCandy candy = null;
-    try {
       candy = (CoffeeCandy) productFactory
           .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
     try {
       Command createCandy = commandFactory.produceCommand(candy, 5, 0);
     } catch (Exception e) {
@@ -94,14 +90,10 @@ public class TestShowCmd {
   }
 
   @Test
-  public void testCreateCandyError6() {
+  public void testCreateCandyError6() throws Exception {
     CoffeeCandy candy = null;
-    try {
       candy = (CoffeeCandy) productFactory
           .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
     try {
       Command createCandy = commandFactory.produceCommand(null, CommandConstant.CREATE, 0);
     } catch (Exception e) {

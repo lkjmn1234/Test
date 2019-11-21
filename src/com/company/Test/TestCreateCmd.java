@@ -14,7 +14,7 @@ import com.company.product.CoffeeCandy;
 import com.company.product.CoffeePowder;
 import org.junit.*;
 
-public class CreateCommandTest {
+public class TestCreateCmd {
 
 
   Factory productFactory = null;
@@ -103,14 +103,10 @@ public class CreateCommandTest {
   }
 
   @Test
-  public void testCreateCandyError5() {
+  public void testCreateCandyError5() throws Exception {
     CoffeeCandy candy = null;
-    try {
       candy = (CoffeeCandy) productFactory
           .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
     try {
       Command createCandy = commandFactory.produceCommand(candy, 5, 0);
     } catch (Exception e) {
@@ -120,14 +116,10 @@ public class CreateCommandTest {
   }
 
   @Test
-  public void testCreateCandyError6() {
+  public void testCreateCandyError6() throws Exception {
     CoffeeCandy candy = null;
-    try {
       candy = (CoffeeCandy) productFactory
           .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
     try {
       Command createCandy = commandFactory.produceCommand(null, CommandConstant.CREATE, 0);
     } catch (Exception e) {
