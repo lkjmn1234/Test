@@ -35,14 +35,14 @@ public class TestDeliverCmd {
   @Test
   public void testDeliverCandy() throws Exception {
     CoffeeCandy candy = (CoffeeCandy) productFactory
-        .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
+        .produceProduct(ProductConstant.CANDY, "1003, Premium Coffee Candy, 50, 15");
     Command createCandy = commandFactory.produceCommand(candy, CommandConstant.CREATE, 0);
     invoker.execute(createCandy);
     candy.setQty(10);
     Command deliverCandy = commandFactory.produceCommand(candy, CommandConstant.DELIVER, 10);
     invoker.execute(deliverCandy);
     candy = (CoffeeCandy) appService.searchProduct(candy.getProductID());
-    assertEquals(1001, candy.getProductID());
+    assertEquals(1003, candy.getProductID());
     assertEquals("Premium Coffee Candy", candy.getName());
     assertEquals(50, candy.getNoOfCandy());
     assertEquals(15, candy.getCaloriesPerCandy());

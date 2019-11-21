@@ -14,7 +14,7 @@ import com.company.product.CoffeeCandy;
 import com.company.product.CoffeePowder;
 import org.junit.*;
 
-public class TestCreateCmd {
+public class CreateCommandTest {
 
 
   Factory productFactory = null;
@@ -34,11 +34,11 @@ public class TestCreateCmd {
   @Test
   public void testCreateCandy() throws Exception {
     CoffeeCandy candy = (CoffeeCandy) productFactory
-        .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
+        .produceProduct(ProductConstant.CANDY, "1002, Premium Coffee Candy, 50, 15");
     Command createCandy = commandFactory.produceCommand(candy, CommandConstant.CREATE, 0);
     invoker.execute(createCandy);
     candy = (CoffeeCandy) appService.searchProduct(candy.getProductID());
-    assertEquals(1001, candy.getProductID());
+    assertEquals(1002, candy.getProductID());
     assertEquals("Premium Coffee Candy", candy.getName());
     assertEquals(50, candy.getNoOfCandy());
     assertEquals(15, candy.getCaloriesPerCandy());

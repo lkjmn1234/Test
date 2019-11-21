@@ -35,13 +35,13 @@ public class TestReceiveCmd {
   @Test
   public void testReceiveCandy() throws Exception {
     CoffeeCandy candy = (CoffeeCandy) productFactory
-        .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
+        .produceProduct(ProductConstant.CANDY, "1004, Premium Coffee Candy, 50, 15");
     Command createCandy = commandFactory.produceCommand(candy, CommandConstant.CREATE, 0);
     invoker.execute(createCandy);
     Command receiveCandy = commandFactory.produceCommand(candy, CommandConstant.RECEIVE, 10);
     invoker.execute(receiveCandy);
     candy = (CoffeeCandy) appService.searchProduct(candy.getProductID());
-    assertEquals(1001, candy.getProductID());
+    assertEquals(1004, candy.getProductID());
     assertEquals("Premium Coffee Candy", candy.getName());
     assertEquals(50, candy.getNoOfCandy());
     assertEquals(15, candy.getCaloriesPerCandy());
@@ -51,13 +51,13 @@ public class TestReceiveCmd {
   @Test
   public void testReceivePowder() throws Exception {
     CoffeePowder powder = (CoffeePowder) productFactory
-        .produceProduct(ProductConstant.POWDER, "2001, Colombia Coffee, 250");
+        .produceProduct(ProductConstant.POWDER, "2002, Colombia Coffee, 250");
     Command createPowder = commandFactory.produceCommand(powder, CommandConstant.CREATE, 0);
     invoker.execute(createPowder);
     Command receivePowder = commandFactory.produceCommand(powder, CommandConstant.RECEIVE, 10);
     invoker.execute(receivePowder);
     powder = (CoffeePowder) appService.searchProduct(powder.getProductID());
-    assertEquals(2001, powder.getProductID());
+    assertEquals(2002, powder.getProductID());
     assertEquals("Colombia Coffee", powder.getName());
     assertEquals(250d, powder.getWeight(), 0);
     assertEquals(10, powder.getQty());

@@ -57,19 +57,19 @@ public class TestUndo {
   @Test
   public void testUndo2() throws Exception {
     CoffeeCandy candy = (CoffeeCandy) productFactory
-        .produceProduct(ProductConstant.CANDY, "1001, Premium Coffee Candy, 50, 15");
+        .produceProduct(ProductConstant.CANDY, "1006, Premium Coffee Candy, 50, 15");
     CoffeePowder powder = (CoffeePowder) productFactory
-        .produceProduct(ProductConstant.POWDER, "2001, Colombia Coffee, 250\n");
+        .produceProduct(ProductConstant.POWDER, "2004, Colombia Coffee, 250\n");
     Command createCandy = commandFactory.produceCommand(candy, CommandConstant.CREATE, 0);
     invoker.execute(createCandy);
     Command createPowder = commandFactory.produceCommand(powder, CommandConstant.CREATE, 0);
     invoker.execute(createPowder);
-    assertEquals(1001, candy.getProductID());
+    assertEquals(1006, candy.getProductID());
     assertEquals("Premium Coffee Candy", candy.getName());
     assertEquals(50, candy.getNoOfCandy());
     assertEquals(15, candy.getCaloriesPerCandy());
     assertEquals(0, candy.getQty());
-    assertEquals(2001, powder.getProductID());
+    assertEquals(2004, powder.getProductID());
     assertEquals("Colombia Coffee", powder.getName());
     assertEquals(250d, powder.getWeight(), 0);
     assertEquals(0, powder.getQty());
